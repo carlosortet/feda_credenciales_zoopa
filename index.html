@@ -16,6 +16,7 @@
             --color-green-neon: #00FF66;
             --color-cream: #F8FBF8;
             --color-cream-dark: #E8F0E8;
+            --color-dark: #1A1A1A;
             --color-text: #1A1A1A;
             --color-text-light: #4A4A4A;
             --color-text-muted: #7A7A7A;
@@ -121,51 +122,6 @@
             margin: 0 auto;
         }
 
-        /* Full Width Image Section */
-        .full-width-image {
-            padding: 0;
-            width: 100%;
-            overflow: hidden;
-        }
-
-        .full-width-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        /* Image Collage Section */
-        .image-collage {
-            padding: 0;
-            width: 100%;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 0;
-        }
-
-        .image-collage .collage-item {
-            overflow: hidden;
-            aspect-ratio: 4/3;
-        }
-
-        .image-collage .collage-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.6s var(--transition-smooth);
-        }
-
-        .image-collage .collage-item:hover img {
-            transform: scale(1.05);
-        }
-
-        @media (max-width: 768px) {
-            .image-collage {
-                grid-template-columns: 1fr;
-            }
-        }
-
         /* Section Headers */
         .section-label {
             font-family: var(--font-body);
@@ -231,9 +187,9 @@
             inset: 0;
             background: linear-gradient(
                 135deg,
-                rgba(27, 67, 50, 0.85) 0%,
-                rgba(27, 67, 50, 0.5) 50%,
-                rgba(27, 67, 50, 0.7) 100%
+                rgba(27, 67, 50, 0.9) 0%,
+                rgba(27, 67, 50, 0.6) 50%,
+                rgba(27, 67, 50, 0.8) 100%
             );
         }
 
@@ -364,6 +320,77 @@
             margin-top: 0.5rem;
         }
 
+        /* B2B B2C Section */
+        .b2b-b2c {
+            background: var(--color-dark);
+            color: white;
+        }
+
+        .b2b-b2c-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .b2b-b2c-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 16px;
+            padding: 2.5rem;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .b2b-b2c-card:hover {
+            background: rgba(255,255,255,0.08);
+            transform: translateY(-4px);
+        }
+
+        .b2b-b2c-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.75rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--color-green-neon);
+        }
+
+        .b2b-b2c-card p {
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .b2b-b2c-card ul {
+            list-style: none;
+        }
+
+        .b2b-b2c-card li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: rgba(255,255,255,0.7);
+        }
+
+        .b2b-b2c-card li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--color-green-bright);
+        }
+
+        .b2b-b2c-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .b2b-b2c-header .section-label {
+            color: var(--color-green-neon);
+        }
+
         /* Capacitat Section */
         .capacitat {
             background: var(--color-green-dark);
@@ -455,6 +482,155 @@
             transform: translateX(4px);
         }
 
+        /* Full Width Image Section */
+        .full-width-image {
+            padding: 0;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .full-width-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Metodologia Hero Section */
+        .metodologia-hero {
+            position: relative;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .metodologia-hero-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+
+        .metodologia-hero-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .metodologia-hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                135deg,
+                rgba(27, 67, 50, 0.85) 0%,
+                rgba(27, 67, 50, 0.7) 40%,
+                rgba(0, 0, 0, 0.6) 100%
+            );
+        }
+
+        .metodologia-hero-content {
+            position: relative;
+            z-index: 10;
+            max-width: 1200px;
+            padding: 4rem;
+            text-align: center;
+        }
+
+        .metodologia-hero-title {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .metodologia-hero-subtitle {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            line-height: 1.8;
+        }
+
+        .metodologia-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .metodologia-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: left;
+            transition: all 0.3s ease;
+        }
+
+        .metodologia-card:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .metodologia-card-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: var(--color-green-neon);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.25rem;
+        }
+
+        .metodologia-card-icon svg {
+            width: 24px;
+            height: 24px;
+            color: var(--color-green-dark);
+        }
+
+        .metodologia-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 0.75rem;
+        }
+
+        .metodologia-card p {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.7;
+        }
+
+        .metodologia-card .card-highlight {
+            display: inline-block;
+            margin-top: 1rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--color-green-neon);
+            padding: 0.5rem 1rem;
+            background: rgba(0, 255, 102, 0.15);
+            border-radius: 20px;
+        }
+
+        @media (max-width: 1024px) {
+            .metodologia-cards {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .metodologia-hero-content {
+                padding: 2rem;
+            }
+        }
+
         /* Adaptabilitat Section */
         .adaptabilitat {
             background: linear-gradient(180deg, var(--color-cream) 0%, var(--color-cream-dark) 100%);
@@ -523,57 +699,6 @@
             background: var(--color-green-dark);
         }
 
-        .format-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-        }
-
-        .format-card {
-            position: relative;
-            border-radius: 12px;
-            overflow: hidden;
-            background: white;
-            box-shadow: 0 10px 40px rgba(27, 67, 50, 0.1);
-            transition: all 0.4s var(--transition-smooth);
-        }
-
-        .format-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 60px rgba(27, 67, 50, 0.2);
-        }
-
-        .format-card img {
-            width: 100%;
-            height: auto;
-            display: block;
-            transition: transform 0.6s var(--transition-smooth);
-        }
-
-        .format-card:hover img {
-            transform: scale(1.05);
-        }
-
-        .format-info {
-            padding: 1.5rem;
-        }
-
-        .format-label {
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: var(--color-green-bright);
-        }
-
-        .format-title {
-            font-family: var(--font-display);
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: var(--color-text);
-            margin-top: 0.5rem;
-        }
-
         /* Qualitat Gràfica Section */
         .qualitat-grafica {
             background: white;
@@ -581,14 +706,13 @@
 
         .qualitat-grafica-grid {
             display: grid;
-            grid-template-columns: 1fr 1.5fr;
+            grid-template-columns: 1fr 1fr;
             gap: 4rem;
-            align-items: start;
+            align-items: center;
         }
 
         .qualitat-content {
-            position: sticky;
-            top: 120px;
+            padding: 2rem 0;
         }
 
         .qualitat-points {
@@ -627,31 +751,16 @@
             color: var(--color-text-muted);
         }
 
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-        }
-
-        .product-card {
-            position: relative;
+        .qualitat-image {
             border-radius: 12px;
             overflow: hidden;
+            box-shadow: 0 30px 60px rgba(27, 67, 50, 0.15);
         }
 
-        .product-card:first-child {
-            grid-column: span 2;
-        }
-
-        .product-card img {
+        .qualitat-image img {
             width: 100%;
             height: auto;
             display: block;
-            transition: transform 0.6s var(--transition-smooth);
-        }
-
-        .product-card:hover img {
-            transform: scale(1.05);
         }
 
         /* Qualitat Lingüística Section */
@@ -722,11 +831,6 @@
             width: 100%;
             height: auto;
             display: block;
-            transition: transform 0.6s ease;
-        }
-
-        .ql-image:hover img {
-            transform: scale(1.03);
         }
 
         /* Validació Section */
@@ -824,40 +928,29 @@
             color: rgba(255, 255, 255, 0.7);
         }
 
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
+        .gallery-masonry {
+            column-count: 3;
+            column-gap: 1.5rem;
         }
 
-        .gallery-card {
-            position: relative;
+        .gallery-item {
+            break-inside: avoid;
+            margin-bottom: 1.5rem;
             border-radius: 12px;
             overflow: hidden;
             background: rgba(255, 255, 255, 0.05);
             transition: all 0.4s var(--transition-smooth);
         }
 
-        .gallery-card:first-child {
-            grid-column: span 2;
-            grid-row: span 2;
-        }
-
-        .gallery-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.6s var(--transition-smooth);
-        }
-
-        .gallery-card:hover {
+        .gallery-item:hover {
             transform: scale(1.02);
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
         }
 
-        .gallery-card:hover img {
-            transform: scale(1.05);
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
         }
 
         /* Footer */
@@ -958,14 +1051,10 @@
             .intro-grid,
             .capacitat-grid,
             .qualitat-grafica-grid,
-            .ql-grid {
+            .ql-grid,
+            .b2b-b2c-grid {
                 grid-template-columns: 1fr;
                 gap: 3rem;
-            }
-
-            .format-grid,
-            .gallery-grid {
-                grid-template-columns: repeat(2, 1fr);
             }
 
             .format-categories {
@@ -982,9 +1071,8 @@
                 display: none;
             }
 
-            .gallery-card:first-child {
-                grid-column: span 2;
-                grid-row: span 1;
+            .gallery-masonry {
+                column-count: 2;
             }
 
             .qualitat-content {
@@ -1001,17 +1089,6 @@
                 font-size: clamp(2.5rem, 12vw, 4rem);
             }
 
-            .format-grid,
-            .products-grid,
-            .gallery-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .product-card:first-child,
-            .gallery-card:first-child {
-                grid-column: span 1;
-            }
-
             .process-steps {
                 grid-template-columns: 1fr;
             }
@@ -1019,6 +1096,10 @@
             .intro-stats {
                 flex-direction: column;
                 gap: 1.5rem;
+            }
+
+            .gallery-masonry {
+                column-count: 1;
             }
 
             .footer-content {
@@ -1065,19 +1146,6 @@
         </div>
     </section>
 
-    <!-- Image Collage -->
-    <section class="image-collage animate-on-scroll">
-        <div class="collage-item">
-            <img src="assets/images/poster-vertical.jpg" alt="FEDA - Pòster Llum Verda">
-        </div>
-        <div class="collage-item">
-            <img src="assets/images/exterior-tanca.jpg" alt="FEDA - Publicitat exterior">
-        </div>
-        <div class="collage-item">
-            <img src="assets/images/factura.jpg" alt="FEDA - Factura">
-        </div>
-    </section>
-
     <!-- Introducció Section -->
     <section class="intro" id="projecte">
         <div class="container">
@@ -1110,6 +1178,43 @@
         </div>
     </section>
 
+    <!-- B2B B2C Section -->
+    <section class="b2b-b2c">
+        <div class="container">
+            <div class="b2b-b2c-header">
+                <span class="section-label animate-on-scroll">Estratègia dual</span>
+                <h2 class="section-title section-title--light animate-on-scroll animate-delay-1">Adaptacions B2B i B2C</h2>
+                <p class="section-description section-description--light animate-on-scroll animate-delay-2" style="margin: 0 auto;">
+                    El projecte va requerir el desenvolupament de versions específiques per a diferents públics objectiu, mantenint la coherència visual de la campanya.
+                </p>
+            </div>
+            <div class="b2b-b2c-grid">
+                <div class="b2b-b2c-card animate-on-scroll animate-delay-3">
+                    <h3>B2C - Client final</h3>
+                    <p>Comunicació emocional orientada a famílies i particulars, destacant el compromís mediambiental i els beneficis de l'energia verda.</p>
+                    <ul>
+                        <li>Campanya exterior i marquesines</li>
+                        <li>Integració en factures domèstiques</li>
+                        <li>Xarxes socials i contingut viral</li>
+                        <li>Mailings personalitzats</li>
+                        <li>Spots TV Andorrana</li>
+                    </ul>
+                </div>
+                <div class="b2b-b2c-card animate-on-scroll animate-delay-4">
+                    <h3>B2B - Empreses</h3>
+                    <p>Comunicació corporativa orientada a empreses i grans consumidors, amb enfocament en eficiència i responsabilitat social.</p>
+                    <ul>
+                        <li>Presentacions corporatives</li>
+                        <li>Documentació tècnica il·lustrada</li>
+                        <li>Senyalètica oficines FEDA</li>
+                        <li>Materials per a comercials</li>
+                        <li>Infografies i reports visuals</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Capacitat Tècnica Section -->
     <section class="capacitat" id="capacitats">
         <div class="container">
@@ -1136,10 +1241,6 @@
                                 <line x1="7" y1="2" x2="7" y2="22"/>
                                 <line x1="17" y1="2" x2="17" y2="22"/>
                                 <line x1="2" y1="12" x2="22" y2="12"/>
-                                <line x1="2" y1="7" x2="7" y2="7"/>
-                                <line x1="2" y1="17" x2="7" y2="17"/>
-                                <line x1="17" y1="17" x2="22" y2="17"/>
-                                <line x1="17" y1="7" x2="22" y2="7"/>
                             </svg>
                             <span>Producció audiovisual i animació</span>
                         </li>
@@ -1170,7 +1271,7 @@
         </div>
     </section>
 
-    <!-- Full Width Image 2 -->
+    <!-- Full Width Image -->
     <section class="full-width-image animate-on-scroll">
         <img src="assets/images/exterior-tanca.jpg" alt="FEDA - Publicitat exterior">
     </section>
@@ -1182,7 +1283,7 @@
                 <span class="section-label animate-on-scroll">Adaptabilitat</span>
                 <h2 class="section-title animate-on-scroll animate-delay-1">Multiformat des de l'origen</h2>
                 <p class="section-description animate-on-scroll animate-delay-2">
-                    Les creativitats es conceben des de l'origen amb criteris multiformat, facilitant la seva adaptació a diferents canals i plataformes sense pèrdua de qualitat ni coherència. Aquest enfocament permet optimitzar cada peça segons dimensions, durades i contextos d'ús, tant en formats estàtics com animats o audiovisuals.
+                    Les creativitats es conceben des de l'origen amb criteris multiformat, facilitant la seva adaptació a diferents canals i plataformes sense pèrdua de qualitat ni coherència. Aquest enfocament permet optimitzar cada peça segons dimensions, durades i contextos d'ús.
                 </p>
             </div>
             
@@ -1222,30 +1323,6 @@
                     </ul>
                 </div>
             </div>
-
-            <div class="format-grid">
-                <div class="format-card animate-on-scroll">
-                    <img src="assets/images/email-instagram.jpg" alt="FEDA - Email i Instagram">
-                    <div class="format-info">
-                        <span class="format-label">Digital</span>
-                        <h3 class="format-title">Email i Xarxes Socials</h3>
-                    </div>
-                </div>
-                <div class="format-card animate-on-scroll animate-delay-1">
-                    <img src="assets/images/factura.jpg" alt="FEDA - Factura">
-                    <div class="format-info">
-                        <span class="format-label">Facturació</span>
-                        <h3 class="format-title">Integració en factures</h3>
-                    </div>
-                </div>
-                <div class="format-card animate-on-scroll animate-delay-2">
-                    <img src="assets/images/poster-vertical.jpg" alt="FEDA - Pòster vertical">
-                    <div class="format-info">
-                        <span class="format-label">Imprès</span>
-                        <h3 class="format-title">Cartelleria i pòsters</h3>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
 
@@ -1283,24 +1360,60 @@
                         </div>
                     </div>
                 </div>
-                <div class="products-grid">
-                    <div class="product-card animate-on-scroll">
-                        <img src="assets/images/bosques-background.jpg" alt="FEDA - Boscos d'Andorra">
-                    </div>
-                    <div class="product-card animate-on-scroll animate-delay-1">
-                        <img src="assets/images/paisatge-andorra.png" alt="FEDA - Paisatge Andorra">
-                    </div>
-                    <div class="product-card animate-on-scroll animate-delay-2">
-                        <img src="assets/images/night-background.jpg" alt="FEDA - Nit estrellada">
-                    </div>
+                <div class="qualitat-image animate-on-scroll">
+                    <img src="assets/images/poster-vertical.jpg" alt="FEDA - Pòster Llum Verda">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Full Width Image 3 -->
-    <section class="full-width-image animate-on-scroll">
-        <img src="assets/images/edifici-feda.jpg" alt="FEDA - Edifici">
+    <!-- Metodologia Hero Section -->
+    <section class="metodologia-hero">
+        <div class="metodologia-hero-bg">
+            <img src="assets/images/bosques-background.jpg" alt="FEDA - Boscos d'Andorra">
+        </div>
+        <div class="metodologia-hero-overlay"></div>
+        <div class="metodologia-hero-content">
+            <span class="section-label animate-on-scroll" style="color: var(--color-green-neon);">El nostre compromís</span>
+            <h2 class="metodologia-hero-title animate-on-scroll animate-delay-1">Metodologia orientada a resultats</h2>
+            <p class="metodologia-hero-subtitle animate-on-scroll animate-delay-2">
+                Apliquem processos de treball estructurats que garanteixen claredat, eficiència i flexibilitat en cada fase del projecte, des de la recepció del briefing fins al lliurament final.
+            </p>
+            <div class="metodologia-cards">
+                <div class="metodologia-card animate-on-scroll animate-delay-3">
+                    <div class="metodologia-card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 11l3 3L22 4"/>
+                            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+                        </svg>
+                    </div>
+                    <h3>Claredat</h3>
+                    <p>Descripció clara de les fases del projecte, des de la recepció del briefing fins al lliurament final, incloent cicles de revisió definits i documentats.</p>
+                    <span class="card-highlight">Fases definides</span>
+                </div>
+                <div class="metodologia-card animate-on-scroll animate-delay-4">
+                    <div class="metodologia-card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="3"/>
+                            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+                        </svg>
+                    </div>
+                    <h3>Metodologia</h3>
+                    <p>Procediments de treball optimitzats, eines professionals i fluxos de producció que asseguren eficiència i qualitat en cada lliurament.</p>
+                    <span class="card-highlight">Eines professionals</span>
+                </div>
+                <div class="metodologia-card animate-on-scroll">
+                    <div class="metodologia-card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 12a9 9 0 0 1-9 9m9-9a9 9 0 0 0-9-9m9 9H3m9 9a9 9 0 0 1-9-9m9 9c1.66 0 3-4.03 3-9s-1.34-9-3-9m0 18c-1.66 0-3-4.03-3-9s1.34-9 3-9m-9 9a9 9 0 0 1 9-9"/>
+                        </svg>
+                    </div>
+                    <h3>Adaptabilitat</h3>
+                    <p>Capacitat de resposta davant encàrrecs urgents o modificacions imprevistes, amb compromís de terminis i flexibilitat operativa total.</p>
+                    <span class="card-highlight">Resposta àgil</span>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- Qualitat Lingüística Section -->
@@ -1350,7 +1463,7 @@
                     </div>
                 </div>
                 <div class="ql-image animate-on-scroll">
-                    <img src="assets/images/museu-feda.png" alt="FEDA - Museu de l'Electricitat">
+                    <img src="assets/images/email-instagram.jpg" alt="FEDA - Email i Instagram">
                 </div>
             </div>
         </div>
@@ -1401,21 +1514,24 @@
                     Selecció de les peces gràfiques creades per a la campanya FEDA Llum Verda 2024-2025.
                 </p>
             </div>
-            <div class="gallery-grid">
-                <div class="gallery-card animate-on-scroll">
-                    <img src="assets/images/kit-comunicacio.jpg" alt="Kit de comunicació">
+            <div class="gallery-masonry">
+                <div class="gallery-item animate-on-scroll">
+                    <img src="assets/images/factura.jpg" alt="Factura Llum Verda">
                 </div>
-                <div class="gallery-card animate-on-scroll animate-delay-1">
-                    <img src="assets/images/poster-vertical.jpg" alt="Pòster vertical">
+                <div class="gallery-item animate-on-scroll animate-delay-1">
+                    <img src="assets/images/muntanyes-llum-verda.jpg" alt="Muntanyes Llum Verda">
                 </div>
-                <div class="gallery-card animate-on-scroll animate-delay-2">
-                    <img src="assets/images/factura.jpg" alt="Factura">
+                <div class="gallery-item animate-on-scroll animate-delay-2">
+                    <img src="assets/images/museu-feda.png" alt="Museu FEDA">
                 </div>
-                <div class="gallery-card animate-on-scroll animate-delay-3">
-                    <img src="assets/images/exterior-tanca.jpg" alt="Exterior">
+                <div class="gallery-item animate-on-scroll animate-delay-3">
+                    <img src="assets/images/paisatge-andorra.png" alt="Paisatge Andorra">
                 </div>
-                <div class="gallery-card animate-on-scroll">
-                    <img src="assets/images/email-instagram.jpg" alt="Email i Instagram">
+                <div class="gallery-item animate-on-scroll">
+                    <img src="assets/images/night-background.jpg" alt="Nit estrellada">
+                </div>
+                <div class="gallery-item animate-on-scroll animate-delay-1">
+                    <img src="assets/images/edifici-feda.jpg" alt="Edifici FEDA">
                 </div>
             </div>
         </div>
