@@ -908,15 +908,16 @@
             margin: 0 auto;
         }
 
-        /* Gallery Section */
+        /* Gallery Section - Enhanced */
         .gallery {
-            background: var(--color-green-dark);
+            background: linear-gradient(180deg, var(--color-green-dark) 0%, #0D1F17 100%);
             color: white;
+            padding: 8rem 3rem;
         }
 
         .gallery-header {
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: 5rem;
         }
 
         .gallery-header .section-label {
@@ -928,14 +929,84 @@
             color: rgba(255, 255, 255, 0.7);
         }
 
-        .gallery-masonry {
-            column-count: 3;
-            column-gap: 1.5rem;
+        /* Featured Events Section */
+        .gallery-featured {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .gallery-featured-item {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.05);
+            transition: all 0.4s var(--transition-smooth);
+        }
+
+        .gallery-featured-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .gallery-featured-item img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s var(--transition-smooth);
+        }
+
+        .gallery-featured-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-featured-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 2rem;
+            background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%);
+        }
+
+        .gallery-featured-caption h4 {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+
+        .gallery-featured-caption p {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .gallery-featured-badge {
+            position: absolute;
+            top: 1.5rem;
+            left: 1.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--color-green-neon);
+            color: var(--color-green-dark);
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            border-radius: 20px;
+        }
+
+        /* Standard Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 4rem;
         }
 
         .gallery-item {
-            break-inside: avoid;
-            margin-bottom: 1.5rem;
             border-radius: 12px;
             overflow: hidden;
             background: rgba(255, 255, 255, 0.05);
@@ -943,14 +1014,121 @@
         }
 
         .gallery-item:hover {
-            transform: scale(1.02);
+            transform: scale(1.03);
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
         }
 
         .gallery-item img {
             width: 100%;
-            height: auto;
+            height: 220px;
+            object-fit: cover;
             display: block;
+            transition: transform 0.5s var(--transition-smooth);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+
+        /* Hero Image in Gallery */
+        .gallery-hero {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 4rem;
+        }
+
+        .gallery-hero img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(27, 67, 50, 0.7) 0%, rgba(0, 0, 0, 0.3) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            padding: 3rem;
+        }
+
+        .gallery-hero-overlay h3 {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .gallery-hero-overlay p {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 600px;
+        }
+
+        /* Gallery Stats Bar */
+        .gallery-stats {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            padding: 2.5rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 4rem;
+        }
+
+        .gallery-stat {
+            text-align: center;
+        }
+
+        .gallery-stat-number {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--color-green-neon);
+            line-height: 1;
+        }
+
+        .gallery-stat-label {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin-top: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        @media (max-width: 1024px) {
+            .gallery-featured {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .gallery-stats {
+                flex-wrap: wrap;
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-hero img {
+                height: 350px;
+            }
+
+            .gallery-featured-item img {
+                height: 280px;
+            }
         }
 
         /* Footer */
@@ -1509,29 +1687,86 @@
         <div class="container">
             <div class="gallery-header">
                 <span class="section-label animate-on-scroll">Galeria</span>
-                <h2 class="section-title section-title--light animate-on-scroll animate-delay-1">Peces de campanya</h2>
+                <h2 class="section-title section-title--light animate-on-scroll animate-delay-1">La campanya en acció</h2>
                 <p class="section-description animate-on-scroll animate-delay-2">
-                    Selecció de les peces gràfiques creades per a la campanya FEDA Llum Verda 2024-2025.
+                    Presència real de la campanya Llum Verda en esdeveniments, mitjans i punts de contacte amb el públic d'Andorra.
                 </p>
             </div>
-            <div class="gallery-masonry">
+
+            <!-- Gallery Stats -->
+            <div class="gallery-stats animate-on-scroll">
+                <div class="gallery-stat">
+                    <div class="gallery-stat-number">82</div>
+                    <div class="gallery-stat-label">Formats creats</div>
+                </div>
+                <div class="gallery-stat">
+                    <div class="gallery-stat-number">6</div>
+                    <div class="gallery-stat-label">Mitjans</div>
+                </div>
+                <div class="gallery-stat">
+                    <div class="gallery-stat-number">3</div>
+                    <div class="gallery-stat-label">Campanyes</div>
+                </div>
+                <div class="gallery-stat">
+                    <div class="gallery-stat-number">100%</div>
+                    <div class="gallery-stat-label">Energia renovable</div>
+                </div>
+            </div>
+
+            <!-- Featured Events -->
+            <div class="gallery-featured">
+                <div class="gallery-featured-item animate-on-scroll">
+                    <span class="gallery-featured-badge">Roda de premsa</span>
+                    <img src="assets/images/screen.png" alt="Roda de premsa FEDA Llum Verda">
+                    <div class="gallery-featured-caption">
+                        <h4>Presentació oficial Llum Verda</h4>
+                        <p>Roda de premsa amb el Director General de FEDA i cobertura de RTVA</p>
+                    </div>
+                </div>
+                <div class="gallery-featured-item animate-on-scroll animate-delay-1">
+                    <span class="gallery-featured-badge">Col·laboració</span>
+                    <img src="assets/images/presentacion.png" alt="Presentació Caldea Llum Verda">
+                    <div class="gallery-featured-caption">
+                        <h4>Caldea amb Llum Verda</h4>
+                        <p>Acord de col·laboració amb el centre termolúdic més emblemàtic d'Andorra</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hero Image -->
+            <div class="gallery-hero animate-on-scroll">
+                <img src="assets/images/event.png" alt="Esdeveniment Grandvalira Llum Verda">
+                <div class="gallery-hero-overlay">
+                    <h3>Presència en grans esdeveniments</h3>
+                    <p>La campanya Llum Verda present a Grandvalira, connectant energia renovable amb l'experiència de muntanya d'Andorra</p>
+                </div>
+            </div>
+
+            <!-- Standard Gallery Grid -->
+            <div class="gallery-grid">
                 <div class="gallery-item animate-on-scroll">
-                    <img src="assets/images/factura.jpg" alt="Factura Llum Verda">
+                    <img src="assets/images/aparador-sticker.jpg" alt="Sticker aparador Llum Verda">
                 </div>
                 <div class="gallery-item animate-on-scroll animate-delay-1">
-                    <img src="assets/images/muntanyes-llum-verda.jpg" alt="Muntanyes Llum Verda">
+                    <img src="assets/images/factura.jpg" alt="Factura Llum Verda">
                 </div>
                 <div class="gallery-item animate-on-scroll animate-delay-2">
                     <img src="assets/images/museu-feda.png" alt="Museu FEDA">
                 </div>
                 <div class="gallery-item animate-on-scroll animate-delay-3">
-                    <img src="assets/images/paisatge-andorra.png" alt="Paisatge Andorra">
+                    <img src="assets/images/edifici-feda.jpg" alt="Edifici FEDA">
                 </div>
                 <div class="gallery-item animate-on-scroll">
-                    <img src="assets/images/night-background.jpg" alt="Nit estrellada">
+                    <img src="assets/images/muntanyes-llum-verda.jpg" alt="Muntanyes Llum Verda">
                 </div>
                 <div class="gallery-item animate-on-scroll animate-delay-1">
-                    <img src="assets/images/edifici-feda.jpg" alt="Edifici FEDA">
+                    <img src="assets/images/paisatge-andorra.png" alt="Paisatge Andorra">
+                </div>
+                <div class="gallery-item animate-on-scroll animate-delay-2">
+                    <img src="assets/images/night-background.jpg" alt="Nit estrellada">
+                </div>
+                <div class="gallery-item animate-on-scroll animate-delay-3">
+                    <img src="assets/images/email-instagram.jpg" alt="FEDA - Email i Instagram">
                 </div>
             </div>
         </div>
